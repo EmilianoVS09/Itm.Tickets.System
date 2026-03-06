@@ -66,7 +66,7 @@ app.MapPost("/api/bookings", async (BookingRequest request, IHttpClientFactory f
     }
 
     // Matemáticas: calcular total
-    decimal subtotal = eventDto!.Price * request.Tickets;
+    decimal subtotal = eventDto!.BasePrice * request.Tickets;
     decimal discountAmount = discountDto is not null ? subtotal * discountDto.Percentage : 0m;
     decimal total = subtotal - discountAmount;
 
@@ -113,4 +113,4 @@ app.Run();
 
 public record BookingRequest(int EventId, int Tickets, string DiscountCode);
 public record DiscountDto(string Code, decimal Percentage);
-public record EventDto(int Id, string Name, decimal Price, int AvailableChairs);
+public record EventDto(int Id, string Name, int BasePrice, int AvailableChairs);
