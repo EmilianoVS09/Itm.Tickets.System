@@ -1,3 +1,10 @@
+// Itm.Event.Api
+// Microservicio responsable por gestionar el aforo del evento.
+// Endpoints:
+//   GET  /api/events/{id}       -> Obtener información del evento
+//   POST /api/events/reserve     -> Reservar sillas (resta cantidad)
+//   POST /api/events/release     -> Liberar sillas (compensación / suma cantidad)
+// Datos simulados en memoria: Event Id=1, Nombre="Concierto ITM", Precio=50000, SillasDisponibles=100
 using Itm.Event.Api.Dtos;
 
 var builder = WebApplication.CreateBuilder(args);

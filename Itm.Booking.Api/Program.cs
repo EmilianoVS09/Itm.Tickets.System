@@ -1,3 +1,11 @@
+// Itm.Booking.Api
+// Orquestador / BFF que coordina la compra de entradas.
+// Flujo principal:
+//  1) Recibe BookingRequest { EventId, Tickets, DiscountCode }
+//  2) Consulta en paralelo: GET /api/events/{id} y GET /api/discounts/{code} (Task.WhenAll)
+//  3) Calcula total, llama POST /api/events/reserve (inicio SAGA)
+//  4) Simula pago (aleatorio). Si falla -> POST /api/events/release (compensación)
+// Configura HttpClientFactory con resiliencia (.AddStandardResilienceHandler) para Event y Discount.
 using System.Net;
 using System.Net.Http.Json;
 

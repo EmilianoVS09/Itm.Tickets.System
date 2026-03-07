@@ -1,3 +1,8 @@
+// Itm.Discount.Api
+// Microservicio responsable por gestionar códigos de descuento.
+// Endpoint:
+//   GET /api/discounts/{code} -> Valida existencia y retorna porcentaje (404 si no existe)
+// Datos simulados en memoria: Codigo="ITM50", Percentage=0.5m
 using Itm.Discount.Api.Dtos;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
 
